@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> <!-- Incluindo a folha de estilos CSS do Bootstrap -->
+    <title>Pra gringo é mais caro</title>
+    <style>
+        .main {
+            display: flex;
+            flex-direction: row;
+            align-items: center; /* Adicionado */
+        }
+
+        @media only screen and (max-width: 600px) {
+        .container {
+            flex-wrap: wrap;
+        }
+
+        img {
+            width: 80%;
+        }
+
+        p, h1 {
+            text-align: center;
+        }
+
+        #info {
+            text-align: center;
+            padding: 0px !important;
+            justify-content: center;
+        }
+
+        ul {
+            text-align: center;
+            padding: 0px !important;
+            justify-content: center;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+        }
+
+        p, .d-flex {
+            margin-top: 30px;
+        }
+
+
+        #info, a {
+            color: rgb(216, 216, 216);
+        }
+
+        li {
+            list-style: none;
+        }
+
+        ul {
+            padding-left: 0px !important;
+            flex-wrap: wrap;
+        }
+
+        a:hover {
+            color: blue;
+        }
+
+        .form-control {
+            max-width: 335.7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main container p-5 justify-content-center">
+        <div class="texto">
+            <h1>Qual a sua nacionalidade? </h1>
+            <div class="d-flex">
+                <input class="form-control me-3" type="text" id="país" placeholder="EUA, Brasil, México..." onkeypress="checkEnter(event)">
+                <input class="btn btn-primary" type="button" value="Responder" id="botao">
+            </div>
+            <p>Preço da água: <span id="preço">???</span></p>
+            <div id="info"></div> <!-- Movido para dentro da div "texto" -->
+        </div>
+        <img src="https://img.freepik.com/vetores-gratis/composicao-realista-de-garrafa-de-agua-mineral-com-imagem-isolada-de-garrafa-de-agua-plastica-na-ilustracao-vetorial-de-fundo-em-branco_1284-67608.jpg?w=740&t=st=1688321964~exp=1688322564~hmac=a82377740869eef01748543778bb21acaed457b72dd1c107ebe0b25fbd27dd02" alt="" width="20%x">
+    </div>
+    
+    <script>
+        botao.addEventListener('click', verificarPreço)
+        function verificarPreço(){
+            
+            var país = window.document.querySelector('input#país').value
+            var preço = window.document.querySelector('span#preço')
+            var info = window.document.querySelector('div#info')
+
+            if (país == 'Brasil' || país == 'brasil') {
+                preço.innerHTML = 'R$1.00, parça!'
+            }
+            else if (país == 'eua' || país == 'EUA' || país == 'estados unidos' || país == 'Estados unidos' || país == 'Estados Unidos') {
+                preço.innerHTML = 'R$20 conto estadunidense fdp!! <p>PRA GRINGO É MAIS CARO!!!</p>'
+            }
+            else if (país == 'Argentina' || país == 'argentina' || país == 'Bolivia' || país == 'bolivia' || país == 'Chile' || país == 'chile' || país == 'Colômbia' || país == 'colômbia' || país == 'Colombia' || país == 'colombia' || país == 'Costa Rica' || país == 'Costa rica' || país == 'costa rica' || país == 'Cuba' || país == 'cuba' || país == 'Equador' || país == 'equador' || país == 'El Salvador' || país == 'El salvador' || país == 'el salvador' || país == 'Guatemala' || país == 'guatemala' || país == 'Haiti' || país == 'haiti' || país == 'Honduras' || país == 'honduras' || país == 'México' || país == 'Mexico' || país == 'méxico' || país == 'mexico' || país == 'Nicarágua' || país == 'nicarágua' || país == 'Nicaragua' || país == 'nicaragua' || país == 'Panamá' || país == 'panamá' || país == 'Panama' || país == 'panama' || país == 'Paraguai' || país == 'paraguai' || país == 'Peru' || país == 'peru' || país == 'República Dominicana' || país == 'República dominicana' || país == 'república dominicana' || país == 'Republica Dominicana' || país == 'Republcia dominicana' || país == 'republica dominicana' || país == 'Uruguai' || país == 'uruguai' || país == 'Venezuela' || país == 'venezuela' ) {
+                preço.innerHTML = 'R$1.00, hermano!'
+            }
+            else {
+                preço.innerHTML = 'R$20 conto fi!! <p><strong>PRA GRINGO É MAIS CARO!!!</strong></p>'
+            }
+            function mostrarTabela () {
+                info.innerHTML += '<ul><li><strong>"Brasil": </strong> "R$1.00, parça!"</li><li><strong>"EUA" ou "Estados Unidos": </strong> "R$20 conto estadunidense fdp!! PRA GRINGO É MAIS CARO!!!"</li><li><strong>Países latinos: </strong> "R$1.00, hermano!"</li><li><strong>Outros países: </strong> "R$20 conto fi!! PRA GRINGO É MAIS CARO!!!"</li></ul>'
+            }
+
+            info.innerHTML = 'Quer ver todos os preços? <a href="#tabela" id="linkTabela" onclick="mostrarTabela()"> Clique aqui! </a>'
+            linkTabela.addEventListener('click', mostrarTabela)
+        }
+
+        function checkEnter(event) { // Declaração da função checkEnter()
+            if (event.keyCode === 13) { // Verificando se o código da tecla pressionada é 13 (código da tecla "Enter")
+                verificarPreço(); // Chamando a função multar()
+            }
+        }
+    </script>
+</body>
+</html>
